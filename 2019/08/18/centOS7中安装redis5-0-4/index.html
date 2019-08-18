@@ -138,21 +138,21 @@
 
 
 
-  <meta name="description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 1234567891011# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis">
+  <meta name="description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 12345678# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis.io/r">
 <meta name="keywords" content="Redis,centOS7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centOS7中安装redis5.0.4">
 <meta property="og:url" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/index.html">
 <meta property="og:site_name" content="猿书">
-<meta property="og:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 1234567891011# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis">
+<meta property="og:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 12345678# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis.io/r">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-conf-daemonize.png">
-<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-start.png">
-<meta property="og:updated_time" content="2019-08-18T06:09:51.183Z">
+<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png">
+<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-start.png">
+<meta property="og:updated_time" content="2019-08-18T06:31:10.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centOS7中安装redis5.0.4">
-<meta name="twitter:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 1234567891011# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis">
-<meta name="twitter:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-conf-daemonize.png">
+<meta name="twitter:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 12345678# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis.io/r">
+<meta name="twitter:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png">
 
 
 
@@ -463,7 +463,7 @@
                 
               
 
-              <time title="创建时间：2019-08-18 11:11:22 / 修改时间：14:09:51" itemprop="dateCreated datePublished" datetime="2019-08-18T11:11:22+08:00">2019-08-18</time>
+              <time title="创建时间：2019-08-18 11:11:22 / 修改时间：14:31:10" itemprop="dateCreated datePublished" datetime="2019-08-18T11:11:22+08:00">2019-08-18</time>
             </span>
           
 
@@ -514,7 +514,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">831</span>
+              <span title="本文字数">845</span>
             </span>
           
 
@@ -548,28 +548,47 @@
         <h3 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h3><p>是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。</p>
 <h3 id="二：安装Redis5-0-4"><a href="#二：安装Redis5-0-4" class="headerlink" title="二：安装Redis5.0.4"></a>二：安装Redis5.0.4</h3><ol>
 <li><p>下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 切换目录(所有第三方软件都放在opt)</span></span><br><span class="line">cd opt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载 </span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果过 wget 命令出错，执行：</span></span><br><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次下载</span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 切换目录(所有第三方软件都放在opt)</span></span><br><span class="line">cd opt</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载 </span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果过 wget 命令出错，执行：</span></span><br><span class="line">yum -y install wget</span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次下载</span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br></pre></td></tr></table></figure>
+
+
 </li>
+</ol>
+<ol start="2">
 <li><p>解压</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf redis-5.0.4.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入刚解压的redis-5.0.4目录</span></span><br><span class="line">cd redis-5.0.4</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf redis-5.0.4.tar.gz</span><br><span class="line">cd redis-5.0.4</span><br></pre></td></tr></table></figure>
+
+
 </li>
+</ol>
+<ol start="3">
 <li><p>安装gcc编译工具</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看是否已安装gcc</span></span><br><span class="line">gcc -v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果gcc -v找不到任何东西则安装gcc</span></span><br><span class="line">yum -y install gcc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看gcc目前版本</span></span><br><span class="line">gcc -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果gcc -v找不到任何东西则安装gcc，如果有则跳过此步骤直接进行第4步</span></span><br><span class="line">yum -y install gcc</span><br></pre></td></tr></table></figure>
+
+
 </li>
+</ol>
+<ol start="4">
 <li><p>编译源码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> make完成后继续执行</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">make</span><br><span class="line"><span class="meta">#</span><span class="bash"> make完成后继续执行</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+
 </li>
+</ol>
+<ol start="5">
 <li><p>配置后台运行</p>
 <p>*如果想后台启动。需要修改redis.conf文件 *</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 备份配置文件 redis.conf</span></span><br><span class="line">mkdir -p /myredis</span><br><span class="line">cp redis.conf /myredis/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑</span></span><br><span class="line">vim /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> daemonize no    改为    daemonize    yes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> protected-mode yes   改为   protected-mode no</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注释 <span class="built_in">bind</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 备份配置文件 redis.conf</span></span><br><span class="line">mkdir -p /myredis</span><br><span class="line">cp redis.conf /myredis/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑</span></span><br><span class="line">vim /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> daemonize no    改为    daemonize    yes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> protected-mode yes   改为   protected-mode no</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注释 <span class="built_in">bind</span></span></span><br></pre></td></tr></table></figure>
 
-<p>如图（参考）：</p>
-<p><img src="centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-conf-daemonize.png" alt="修改redis服务默认后台启动"></p>
+
 </li>
+</ol>
+<p>如图（参考）：</p>
+<p><img src="/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png" alt="修改redis服务默认后台启动"></p>
+<ol start="6">
 <li><p>启动</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动服务端</span></span><br><span class="line">src/redis-server /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动客户端</span></span><br><span class="line">src/redis-cli -p 6379</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭 redis 服务</span></span><br><span class="line">shutdown</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
 
-<p><img src="centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-start.png" alt="redis启动命令"></p>
+<p><img src="/2019/08/18/centOS7中安装redis5-0-4/redis-start.png" alt="redis启动命令"></p>
 </li>
 </ol>
 
