@@ -138,18 +138,21 @@
 
 
 
-  <meta name="description" content="1.【错误经过：】 在 mysql 数据库执行多表连接查询时：  1select * from A LEFT JOIN B ON A.user_id = b.user_id   出现错误：  1Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)  ​    意思大概就是说 A 表的编">
-<meta name="keywords" content="MySQL">
+  <meta name="description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 1234567891011# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis">
+<meta name="keywords" content="Redis,centOS7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql编码引起的 Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)错误">
-<meta property="og:url" content="https://xiaochangkun.github.io/2019/07/18/Mysql编码引起的Illegal-mix-of-collations-utf8-unicode-ci-IMPLICIT-and-utf8-general-ci-IMPLICIT-错误/index.html">
+<meta property="og:title" content="centOS7中安装redis5.0.4">
+<meta property="og:url" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/index.html">
 <meta property="og:site_name" content="猿书">
-<meta property="og:description" content="1.【错误经过：】 在 mysql 数据库执行多表连接查询时：  1select * from A LEFT JOIN B ON A.user_id = b.user_id   出现错误：  1Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)  ​    意思大概就是说 A 表的编">
+<meta property="og:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 1234567891011# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-20T08:06:55.613Z">
+<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-conf-daemonize.png">
+<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-start.png">
+<meta property="og:updated_time" content="2019-08-18T06:09:51.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql编码引起的 Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)错误">
-<meta name="twitter:description" content="1.【错误经过：】 在 mysql 数据库执行多表连接查询时：  1select * from A LEFT JOIN B ON A.user_id = b.user_id   出现错误：  1Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)  ​    意思大概就是说 A 表的编">
+<meta name="twitter:title" content="centOS7中安装redis5.0.4">
+<meta name="twitter:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 1234567891011# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis">
+<meta name="twitter:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-conf-daemonize.png">
 
 
 
@@ -157,7 +160,7 @@
 
   
   
-  <link rel="canonical" href="https://xiaochangkun.github.io/2019/07/18/Mysql编码引起的Illegal-mix-of-collations-utf8-unicode-ci-IMPLICIT-and-utf8-general-ci-IMPLICIT-错误/">
+  <link rel="canonical" href="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/">
 
 
 
@@ -167,7 +170,7 @@
   };
 </script>
 
-  <title>Mysql编码引起的 Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)错误 | 猿书</title>
+  <title>centOS7中安装redis5.0.4 | 猿书</title>
   
 
 
@@ -417,7 +420,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xiaochangkun.github.io/2019/07/18/Mysql编码引起的Illegal-mix-of-collations-utf8-unicode-ci-IMPLICIT-and-utf8-general-ci-IMPLICIT-错误/">
+    <link itemprop="mainEntityOfPage" href="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xiaochangkun">
@@ -434,7 +437,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql编码引起的 Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)错误
+          <h1 class="post-title" itemprop="name headline">centOS7中安装redis5.0.4
 
               
             
@@ -460,23 +463,13 @@
                 
               
 
-              <time title="创建时间：2019-07-18 12:28:47" itemprop="dateCreated datePublished" datetime="2019-07-18T12:28:47+08:00">2019-07-18</time>
+              <time title="创建时间：2019-08-18 11:11:22 / 修改时间：14:09:51" itemprop="dateCreated datePublished" datetime="2019-08-18T11:11:22+08:00">2019-08-18</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-20 16:06:55" itemprop="dateModified" datetime="2019-07-20T16:06:55+08:00">2019-07-20</time>
-              </span>
             
           
 
@@ -489,7 +482,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
 
                 
                 
@@ -497,21 +490,6 @@
             </span>
           
 
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/07/18/Mysql编码引起的Illegal-mix-of-collations-utf8-unicode-ci-IMPLICIT-and-utf8-general-ci-IMPLICIT-错误/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/18/Mysql编码引起的Illegal-mix-of-collations-utf8-unicode-ci-IMPLICIT-and-utf8-general-ci-IMPLICIT-错误/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -536,7 +514,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">576</span>
+              <span title="本文字数">831</span>
             </span>
           
 
@@ -567,32 +545,33 @@
       
 
       
-        <h5 id="1-【错误经过：】"><a href="#1-【错误经过：】" class="headerlink" title="1.【错误经过：】"></a>1.【错误经过：】</h5><ul>
-<li>在 mysql 数据库执行多表连接查询时：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from A LEFT JOIN B ON A.user_id = b.user_id</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>出现错误：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)</span><br></pre></td></tr></table></figure>
-
-<p>​    意思大概就是说 A 表的编码格式和 B 表的编码方式不一致，不能进行比较。</p>
-<h5 id="2-【解决办法：】"><a href="#2-【解决办法：】" class="headerlink" title="2.【解决办法：】"></a>2.【解决办法：】</h5><ul>
-<li><p>将 A表 和 B表 的 （ <code>collations</code> 或者 <code>校对规则</code>）的编码的方式统一为 utf8_general_ci</p>
+        <h3 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h3><p>是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。</p>
+<h3 id="二：安装Redis5-0-4"><a href="#二：安装Redis5-0-4" class="headerlink" title="二：安装Redis5.0.4"></a>二：安装Redis5.0.4</h3><ol>
+<li><p>下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 切换目录(所有第三方软件都放在opt)</span></span><br><span class="line">cd opt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载 </span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果过 wget 命令出错，执行：</span></span><br><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次下载</span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>然后执行如下语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 convert to character set utf8 collate utf8_general_ci</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<li><p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf redis-5.0.4.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入刚解压的redis-5.0.4目录</span></span><br><span class="line">cd redis-5.0.4</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p><em>注意 ！！！</em></p>
-<p><em>一般做了上面这一步还是不能解决问题，这是因为表里面的数据是之前插入进去的，编码方式自然也是之前的 <code>utf8_unicode_ci</code> 了，所以做数据比较的时候依然报错！！！要解决问题：还需要继续执行第二步，把表数据的编码规则也统一纠正过来</em></p>
-<p><em>(另，注：utf8_general_ci和utf8_unicode_ci的区别，前者校对速度快，但准确度稍差；后者准确度高，但校对速度稍慢。）</em></p>
+<li><p>安装gcc编译工具</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看是否已安装gcc</span></span><br><span class="line">gcc -v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果gcc -v找不到任何东西则安装gcc</span></span><br><span class="line">yum -y install gcc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> make完成后继续执行</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置后台运行</p>
+<p>*如果想后台启动。需要修改redis.conf文件 *</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 备份配置文件 redis.conf</span></span><br><span class="line">mkdir -p /myredis</span><br><span class="line">cp redis.conf /myredis/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑</span></span><br><span class="line">vim /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> daemonize no    改为    daemonize    yes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> protected-mode yes   改为   protected-mode no</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注释 <span class="built_in">bind</span></span></span><br></pre></td></tr></table></figure>
+
+<p>如图（参考）：</p>
+<p><img src="centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-conf-daemonize.png" alt="修改redis服务默认后台启动"></p>
+</li>
+<li><p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动服务端</span></span><br><span class="line">src/redis-server /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动客户端</span></span><br><span class="line">src/redis-cli -p 6379</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭 redis 服务</span></span><br><span class="line">shutdown</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p><img src="centOS7%E4%B8%AD%E5%AE%89%E8%A3%85redis5-0-4%5Credis-start.png" alt="redis启动命令"></p>
+</li>
+</ol>
 
       
     </div>
@@ -652,7 +631,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+            <a href="/tags/centOS7/" rel="tag"># centOS7</a>
           
         </div>
       
@@ -665,15 +646,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/02/springboot接入支付宝app支付/" rel="next" title="springboot接入支付宝app支付">
+                <i class="fa fa-chevron-left"></i> springboot接入支付宝app支付
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/02/springboot接入微信app支付/" rel="prev" title="springboot接入微信app支付">
-                springboot接入微信app支付 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -694,17 +675,6 @@
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -871,7 +841,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-【错误经过：】"><span class="nav-number">1.</span> <span class="nav-text">1.【错误经过：】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-【解决办法：】"><span class="nav-number">2.</span> <span class="nav-text">2.【解决办法：】</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一：简介"><span class="nav-number">1.</span> <span class="nav-text">一：简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：安装Redis5-0-4"><span class="nav-number">2.</span> <span class="nav-text">二：安装Redis5.0.4</span></a></li></ol></div>
             
 
           </div>
@@ -1079,28 +1049,9 @@
 </script>
 
 
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://xiaochangkun.github.io/2019/07/18/Mysql编码引起的Illegal-mix-of-collations-utf8-unicode-ci-IMPLICIT-and-utf8-general-ci-IMPLICIT-错误/";
-    this.page.identifier = "2019/07/18/Mysql编码引起的Illegal-mix-of-collations-utf8-unicode-ci-IMPLICIT-and-utf8-general-ci-IMPLICIT-错误/";
-    this.page.title = 'Mysql编码引起的 Illegal mix of collations (utf8_unicode_ci,IMPLICIT) and (utf8_general_ci,IMPLICIT)错误';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-  
-    window.addEventListener('load', loadComments, false);
-  
-</script>
 
 
 
-
-
-  
 
 
   
