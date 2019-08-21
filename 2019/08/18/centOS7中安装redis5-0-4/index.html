@@ -148,7 +148,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png">
 <meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-start.png">
-<meta property="og:updated_time" content="2019-08-18T06:31:10.476Z">
+<meta property="og:updated_time" content="2019-08-18T06:44:40.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centOS7中安装redis5.0.4">
 <meta name="twitter:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 12345678# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis.io/r">
@@ -463,7 +463,7 @@
                 
               
 
-              <time title="创建时间：2019-08-18 11:11:22 / 修改时间：14:31:10" itemprop="dateCreated datePublished" datetime="2019-08-18T11:11:22+08:00">2019-08-18</time>
+              <time title="创建时间：2019-08-18 11:11:22 / 修改时间：14:44:40" itemprop="dateCreated datePublished" datetime="2019-08-18T11:11:22+08:00">2019-08-18</time>
             </span>
           
 
@@ -576,13 +576,13 @@
 </ol>
 <ol start="5">
 <li><p>配置后台运行</p>
-<p>*如果想后台启动。需要修改redis.conf文件 *</p>
+<p><em>如果想后台启动。需要修改redis.conf文件</em></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 备份配置文件 redis.conf</span></span><br><span class="line">mkdir -p /myredis</span><br><span class="line">cp redis.conf /myredis/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑</span></span><br><span class="line">vim /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> daemonize no    改为    daemonize    yes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> protected-mode yes   改为   protected-mode no</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注释 <span class="built_in">bind</span></span></span><br></pre></td></tr></table></figure>
 
 
 </li>
 </ol>
-<p>如图（参考）：</p>
+<p>   如图（参考）：</p>
 <p><img src="/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png" alt="修改redis服务默认后台启动"></p>
 <ol start="6">
 <li><p>启动</p>
@@ -675,6 +675,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/08/21/Redis常见配置redis-conf介绍/" rel="prev" title="Redis常见配置redis.conf介绍">
+                Redis常见配置redis.conf介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -740,7 +744,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -893,7 +897,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">33k</span>
   
 
   
@@ -902,7 +906,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">28 分钟</span>
+    <span title="站点阅读时长">30 分钟</span>
   
 </div>
 
