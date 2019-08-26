@@ -138,16 +138,18 @@
 
 
 
-  <meta name="description" content="愿岁月静好，始于初见，止于终老。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="猿书">
-<meta property="og:url" content="https://xiaochangkun.github.io/tags/支付宝支付/index.html">
+  <meta name="description" content="一、RBD RDB持久化方式能够在指定的时间间隔能对你的数据进行快照存储。  二、AOF  AOF持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾。Redis还能对AOF文件进行后台重写，使得AOF文件的体积不至于过大。  三、只做缓存 如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis持久化——RDB、AOF总结、性能建议(Which one)">
+<meta property="og:url" content="https://xiaochangkun.github.io/2019/08/24/Redis持久化——RDB、AOF总结、性能建议(Which one)/index.html">
 <meta property="og:site_name" content="猿书">
-<meta property="og:description" content="愿岁月静好，始于初见，止于终老。">
+<meta property="og:description" content="一、RBD RDB持久化方式能够在指定的时间间隔能对你的数据进行快照存储。  二、AOF  AOF持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾。Redis还能对AOF文件进行后台重写，使得AOF文件的体积不至于过大。  三、只做缓存 如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-26T11:00:56.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="猿书">
-<meta name="twitter:description" content="愿岁月静好，始于初见，止于终老。">
+<meta name="twitter:title" content="Redis持久化——RDB、AOF总结、性能建议(Which one)">
+<meta name="twitter:description" content="一、RBD RDB持久化方式能够在指定的时间间隔能对你的数据进行快照存储。  二、AOF  AOF持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾。Redis还能对AOF文件进行后台重写，使得AOF文件的体积不至于过大。  三、只做缓存 如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持">
 
 
 
@@ -155,7 +157,7 @@
 
   
   
-  <link rel="canonical" href="https://xiaochangkun.github.io/tags/支付宝支付/">
+  <link rel="canonical" href="https://xiaochangkun.github.io/2019/08/24/Redis持久化——RDB、AOF总结、性能建议(Which one)/">
 
 
 
@@ -165,7 +167,7 @@
   };
 </script>
 
-  <title>标签: 支付宝支付 | 猿书</title>
+  <title>Redis持久化——RDB、AOF总结、性能建议(Which one) | 猿书</title>
   
 
 
@@ -213,7 +215,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,7 +285,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -325,22 +327,6 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-schedule">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
 
   </li>
         
@@ -395,85 +381,292 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>支付宝支付<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xiaochangkun.github.io/2019/08/24/Redis持久化——RDB、AOF总结、性能建议(Which one)/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaochangkun">
+      <meta itemprop="description" content="愿岁月静好，始于初见，止于终老。">
+      <meta itemprop="image" content="/images/avatar2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猿书">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/08/02/springboot接入支付宝app支付/" itemprop="url">
-            
-              <span itemprop="name">springboot接入支付宝app支付</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Redis持久化——RDB、AOF总结、性能建议(Which one)
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-02T21:20:43+08:00" content="2019-08-02">
-          08-02
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-24 15:12:22" itemprop="dateCreated datePublished" datetime="2019-08-24T15:12:22+08:00">2019-08-24</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-26 19:00:56" itemprop="dateModified" datetime="2019-08-26T19:00:56+08:00">2019-08-26</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">877</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">1 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、RBD"><a href="#一、RBD" class="headerlink" title="一、RBD"></a>一、RBD</h3><blockquote>
+<p>RDB持久化方式能够在指定的时间间隔能对你的数据进行快照存储。</p>
+</blockquote>
+<h3 id="二、AOF"><a href="#二、AOF" class="headerlink" title="二、AOF"></a>二、AOF</h3><blockquote>
+<p> AOF持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾。Redis还能对AOF文件进行后台重写，使得AOF文件的体积不至于过大。</p>
+</blockquote>
+<h3 id="三、只做缓存"><a href="#三、只做缓存" class="headerlink" title="三、只做缓存"></a>三、只做缓存</h3><blockquote>
+<p>如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持久化方式.。</p>
+</blockquote>
+<h3 id="四、同时开启两种持久化方式"><a href="#四、同时开启两种持久化方式" class="headerlink" title="四、同时开启两种持久化方式"></a>四、同时开启两种持久化方式</h3><blockquote>
+<ul>
+<li>在这种情况下，当Redis重启的时候会优先载入AOF文件来恢复原始的数据，因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整。</li>
+<li>RDB的数据不实时，同时使用两者时服务器重启也只会找AOF文件。那要不要只使用AOF呢？作者建议不要，因为RDB更适合用于备份数据库（AOF在不断变化不好备份），快速重启，而且不会有AOF可能潜在的bug，留着作为一个万一的手段。</li>
+</ul>
+</blockquote>
+<h3 id="五、性能建议"><a href="#五、性能建议" class="headerlink" title="五、性能建议"></a>五、性能建议</h3><blockquote>
+<ul>
+<li>因为RDB文件只用作后备用途，建议只在Slave上持久化RDB文件，而且只要15分钟备份一次就够了，只保留save 900 1这条规则。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果Enalbe AOF，好处是在最恶劣情况下也只会丢失不超过两秒数据，启动脚本较简单只load自己的AOF文件就可以了。代价一是带来了持续的IO，二是AOF rewrite的最后将rewrite过程中产生的新数据写到新文件造成的阻塞几乎是不可避免的。只要硬盘许可，应该尽量减少AOF rewrite的频率，AOF重写的基础大小默认值64M太小了，可以设到5G以上。默认超过原大小100%大小时重写可以改到适当的数值。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果不Enable AOF ，仅靠Master-Slave Replication 实现高可用性也可以。能省掉一大笔IO也减少了rewrite时带来的系统波动。代价是如果Master/Slave同时倒掉，会丢失十几分钟的数据，启动脚本也要比较两个Master/Slave中的RDB文件，载入较新的那个。新浪微博就选用了这种架构。</li>
+</ul>
+</blockquote>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="xiaochangkun 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="xiaochangkun 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/24/Redis持久化——AOF（Append Only File）/" rel="next" title="Redis持久化——AOF（Append Only File）">
+                <i class="fa fa-chevron-left"></i> Redis持久化——AOF（Append Only File）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/25/Redis事务/" rel="prev" title="Redis持久化——RDB（Redis DataBase）">
+                Redis持久化——RDB（Redis DataBase） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
@@ -497,8 +690,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -515,7 +717,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -563,11 +765,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -621,6 +819,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、RBD"><span class="nav-number">1.</span> <span class="nav-text">一、RBD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、AOF"><span class="nav-number">2.</span> <span class="nav-text">二、AOF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、只做缓存"><span class="nav-number">3.</span> <span class="nav-text">三、只做缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、同时开启两种持久化方式"><span class="nav-number">4.</span> <span class="nav-text">四、同时开启两种持久化方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、性能建议"><span class="nav-number">5.</span> <span class="nav-text">五、性能建议</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -647,7 +862,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">33k</span>
+    <span title="站点总字数">41k</span>
   
 
   
@@ -656,7 +871,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">30 分钟</span>
+    <span title="站点阅读时长">38 分钟</span>
   
 </div>
 
@@ -791,6 +1006,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 

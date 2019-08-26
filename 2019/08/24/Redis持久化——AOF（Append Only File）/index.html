@@ -138,21 +138,20 @@
 
 
 
-  <meta name="description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 12345678# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis.io/r">
-<meta name="keywords" content="Redis,centOS7">
+  <meta name="description" content="一、是什么？  以日志的形式来记录每个写操作，将Redis执行过的所有写指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作。   优势  每次修改同步：appendfsync always   同步持久化 每次发生数据变更会被立即记录到磁盘 ，性能较差但数">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centOS7中安装redis5.0.4">
-<meta property="og:url" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/index.html">
+<meta property="og:title" content="Redis持久化——AOF（Append Only File）">
+<meta property="og:url" content="https://xiaochangkun.github.io/2019/08/24/Redis持久化——AOF（Append Only File）/index.html">
 <meta property="og:site_name" content="猿书">
-<meta property="og:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 12345678# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis.io/r">
+<meta property="og:description" content="一、是什么？  以日志的形式来记录每个写操作，将Redis执行过的所有写指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作。   优势  每次修改同步：appendfsync always   同步持久化 每次发生数据变更会被立即记录到磁盘 ，性能较差但数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png">
-<meta property="og:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-start.png">
-<meta property="og:updated_time" content="2019-08-18T06:44:40.123Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/18660770-905eefe75818061f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-26T10:59:07.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centOS7中安装redis5.0.4">
-<meta name="twitter:description" content="一：简介是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。 二：安装Redis5.0.4 下载 12345678# 切换目录(所有第三方软件都放在opt)cd opt# 下载 wget http://download.redis.io/r">
-<meta name="twitter:image" content="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png">
+<meta name="twitter:title" content="Redis持久化——AOF（Append Only File）">
+<meta name="twitter:description" content="一、是什么？  以日志的形式来记录每个写操作，将Redis执行过的所有写指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作。   优势  每次修改同步：appendfsync always   同步持久化 每次发生数据变更会被立即记录到磁盘 ，性能较差但数">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/18660770-905eefe75818061f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -160,7 +159,7 @@
 
   
   
-  <link rel="canonical" href="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/">
+  <link rel="canonical" href="https://xiaochangkun.github.io/2019/08/24/Redis持久化——AOF（Append Only File）/">
 
 
 
@@ -170,7 +169,7 @@
   };
 </script>
 
-  <title>centOS7中安装redis5.0.4 | 猿书</title>
+  <title>Redis持久化——AOF（Append Only File） | 猿书</title>
   
 
 
@@ -404,7 +403,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xiaochangkun.github.io/2019/08/18/centOS7中安装redis5-0-4/">
+    <link itemprop="mainEntityOfPage" href="https://xiaochangkun.github.io/2019/08/24/Redis持久化——AOF（Append Only File）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xiaochangkun">
@@ -421,7 +420,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">centOS7中安装redis5.0.4
+          <h1 class="post-title" itemprop="name headline">Redis持久化——AOF（Append Only File）
 
               
             
@@ -447,13 +446,23 @@
                 
               
 
-              <time title="创建时间：2019-08-18 11:11:22 / 修改时间：14:44:40" itemprop="dateCreated datePublished" datetime="2019-08-18T11:11:22+08:00">2019-08-18</time>
+              <time title="创建时间：2019-08-24 08:02:34" itemprop="dateCreated datePublished" datetime="2019-08-24T08:02:34+08:00">2019-08-24</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-26 18:59:07" itemprop="dateModified" datetime="2019-08-26T18:59:07+08:00">2019-08-26</time>
+              </span>
             
           
 
@@ -498,7 +507,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">845</span>
+              <span title="本文字数">1.7k</span>
             </span>
           
 
@@ -510,7 +519,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -529,52 +538,63 @@
       
 
       
-        <h3 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h3><p>是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。</p>
-<h3 id="二：安装Redis5-0-4"><a href="#二：安装Redis5-0-4" class="headerlink" title="二：安装Redis5.0.4"></a>二：安装Redis5.0.4</h3><ol>
-<li><p>下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 切换目录(所有第三方软件都放在opt)</span></span><br><span class="line">cd opt</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载 </span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果过 wget 命令出错，执行：</span></span><br><span class="line">yum -y install wget</span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次下载</span></span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.4.tar.gz</span><br></pre></td></tr></table></figure>
+        <h3 id="一、是什么？"><a href="#一、是什么？" class="headerlink" title="一、是什么？"></a>一、是什么？</h3><blockquote>
+<ul>
+<li><strong>以日志的形式来记录每个写操作</strong>，将Redis执行过的所有写指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作。</li>
+</ul>
+</blockquote>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><blockquote>
+<ul>
+<li>每次修改同步：appendfsync always   同步持久化 每次发生数据变更会被立即记录到磁盘 ，性能较差但数据完整性比较好。</li>
+<li>每秒同步：appendfsync everysec  异步操作，每秒记录   如果一秒内宕机，有数据丢失。</li>
+<li>不同步：appendfsync no   从不同步。</li>
+</ul>
+</blockquote>
+<h4 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h4><blockquote>
+<ul>
+<li>相同数据集的数据而言AOF文件要远大于RDB文件，恢复速度慢于RDB。</li>
+<li>AOF运行效率要慢于RDB，每秒同步策略效率较好，不同步效率和RDB相同。</li>
+</ul>
+</blockquote>
+<h3 id="二、AOF介绍"><a href="#二、AOF介绍" class="headerlink" title="二、AOF介绍"></a>二、AOF介绍</h3><blockquote>
+<ul>
+<li>可以同时启用AOF和RDB持久化，不会出现任何问题。</li>
+<li>在启动Redis服务时， 如果启用了AOF，则Redis将加载AOF文件进行数据恢复，这是是具有更好持久性保证的文件。</li>
+</ul>
+</blockquote>
+<h3 id="三、AOF启动配置"><a href="#三、AOF启动配置" class="headerlink" title="三、AOF启动配置"></a>三、AOF启动配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 开启AOF持久化，默认：no，开启改为 yes</span><br><span class="line">appendonly no</span><br><span class="line"># AOF文件的名字，建议使用默认值。</span><br><span class="line">appendfilename &quot;appendonly.aof&quot;</span><br><span class="line"></span><br><span class="line"># Redis支持三种不同的备份模式:</span><br><span class="line"># always：同步持久化 每次发生数据变更会被立即记录到磁盘  性能较差但数据完整性比较好</span><br><span class="line"># everysec：出厂默认推荐，异步操作，每秒记录   如果一秒内宕机，有数据丢失</span><br><span class="line"># no：不要fsync，只要让操作系统在需要的时候刷新数据即可。得更快。</span><br><span class="line"># appendfsync always</span><br><span class="line">appendfsync everysec</span><br><span class="line"># appendfsync no</span><br><span class="line"></span><br><span class="line"># 重写时是否可以运用Appendfsync，用默认no即可，保证数据安全性。</span><br><span class="line">no-appendfsync-on-rewrite no</span><br><span class="line"></span><br><span class="line"># 设置重写的基准值</span><br><span class="line"># 指定百分比为0，以禁用自动AOF重写特性。</span><br><span class="line">auto-aof-rewrite-percentage 100</span><br><span class="line">auto-aof-rewrite-min-size 64mb</span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ol>
-<ol start="2">
-<li><p>解压</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf redis-5.0.4.tar.gz</span><br><span class="line">cd redis-5.0.4</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="3">
-<li><p>安装gcc编译工具</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看gcc目前版本</span></span><br><span class="line">gcc -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果gcc -v找不到任何东西则安装gcc，如果有则跳过此步骤直接进行第4步</span></span><br><span class="line">yum -y install gcc</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="4">
-<li><p>编译源码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">make</span><br><span class="line"><span class="meta">#</span><span class="bash"> make完成后继续执行</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="5">
-<li><p>配置后台运行</p>
-<p><em>如果想后台启动。需要修改redis.conf文件</em></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 备份配置文件 redis.conf</span></span><br><span class="line">mkdir -p /myredis</span><br><span class="line">cp redis.conf /myredis/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑</span></span><br><span class="line">vim /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> daemonize no    改为    daemonize    yes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> protected-mode yes   改为   protected-mode no</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注释 <span class="built_in">bind</span></span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<p>   如图（参考）：</p>
-<p><img src="/2019/08/18/centOS7中安装redis5-0-4/redis-conf-daemonize.png" alt="修改redis服务默认后台启动"></p>
-<ol start="6">
-<li><p>启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动服务端</span></span><br><span class="line">src/redis-server /myredis/redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动客户端</span></span><br><span class="line">src/redis-cli -p 6379</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭 redis 服务</span></span><br><span class="line">shutdown</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/08/18/centOS7中安装redis5-0-4/redis-start.png" alt="redis启动命令"></p>
-</li>
-</ol>
+<h3 id="四、AOF恢复-RDB同理"><a href="#四、AOF恢复-RDB同理" class="headerlink" title="四、AOF恢复 (RDB同理)"></a>四、AOF恢复 (RDB同理)</h3><h4 id="正常恢复"><a href="#正常恢复" class="headerlink" title="正常恢复"></a>正常恢复</h4><blockquote>
+<ul>
+<li>将有数据的AOF文件复制一份保存到对应目录(config get dir)</li>
+<li>恢复：重启redis然后重新加载</li>
+</ul>
+</blockquote>
+<h4 id="异常恢复"><a href="#异常恢复" class="headerlink" title="异常恢复"></a>异常恢复</h4><blockquote>
+<ul>
+<li>备份被写坏的AOF文件</li>
+<li>修复：执行 redis-check-aof –fix appendonly.aof  进行修复。</li>
+<li>重启redis然后重新加载</li>
+</ul>
+</blockquote>
+<h3 id="AOF重写"><a href="#AOF重写" class="headerlink" title="AOF重写"></a>AOF重写</h3><h4 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h4><blockquote>
+<ul>
+<li>AOF采用文件追加的方式，文件会越来越大。为避免出现此种情况，新增了重写机制，当AOF文件的大小超过所设定的阈值时，Redis就会启动AOF文件的内容压缩，只保留可以恢复数据的最小指令集，可以使用命令bgrewriteaof。<br>####重写原理：</li>
+<li>AOF文件因持续增长而过大时，会fork出一条新进程来将文件重写(也是先写临时文件最后再rename)，遍历新进程的内存中数据，每条记录有一条的set语句。重写AOF文件的操作，并没有读取旧的AOF文件，而是将整个内存中的数据库内容用命令的方式重写了一个新的aof文件，这点和快照有点类似。<br>####触发机制：</li>
+<li>Redis会记录上次重写时的AOF大小。</li>
+<li>默认配置是：<em>当AOF文件大小是上次rewrite后大小的一倍且文件大于64M时触发</em>。</li>
+</ul>
+</blockquote>
+<h3 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h3><p><img src="https://upload-images.jianshu.io/upload_images/18660770-905eefe75818061f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AOF.png"></p>
+<blockquote>
+<ul>
+<li>AOF文件是一个只进行追加的日志文件。</li>
+<li>Redis 可以在AOF文件体积变得过大时。自动地在后台对AOF进行重写。</li>
+<li>AOF文件有序的保存了对数据库执行的所有写入操作，这些写入操作以Redis协议的格式保存，因此AOF文件的内容非常容易被人读懂，对文件进行分析也很轻松。</li>
+<li>对于相同的数据集来说，AOF文件的体积通常大于RBD文件的体积。</li>
+<li>根据所使用的的fsync策略，AOF的速度可能慢于RDB。</li>
+</ul>
+</blockquote>
 
       
     </div>
@@ -636,8 +656,6 @@
           
             <a href="/tags/Redis/" rel="tag"># Redis</a>
           
-            <a href="/tags/centOS7/" rel="tag"># centOS7</a>
-          
         </div>
       
 
@@ -649,8 +667,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/02/springboot接入微信app支付/" rel="next" title="springboot接入微信app支付">
-                <i class="fa fa-chevron-left"></i> springboot接入微信app支付
+              <a href="/2019/08/22/Redis持久化——RDB（Redis DataBase）/" rel="next" title="Redis持久化——RDB（Redis DataBase）">
+                <i class="fa fa-chevron-left"></i> Redis持久化——RDB（Redis DataBase）
               </a>
             
           </div>
@@ -659,8 +677,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/21/Redis常见配置redis-conf介绍/" rel="prev" title="Redis常见配置redis.conf介绍">
-                Redis常见配置redis.conf介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/24/Redis持久化——RDB、AOF总结、性能建议(Which one)/" rel="prev" title="Redis持久化——RDB、AOF总结、性能建议(Which one)">
+                Redis持久化——RDB、AOF总结、性能建议(Which one) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -840,7 +858,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一：简介"><span class="nav-number">1.</span> <span class="nav-text">一：简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：安装Redis5-0-4"><span class="nav-number">2.</span> <span class="nav-text">二：安装Redis5.0.4</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、是什么？"><span class="nav-number">1.</span> <span class="nav-text">一、是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优势"><span class="nav-number">1.1.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#劣势"><span class="nav-number">1.2.</span> <span class="nav-text">劣势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、AOF介绍"><span class="nav-number">2.</span> <span class="nav-text">二、AOF介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、AOF启动配置"><span class="nav-number">3.</span> <span class="nav-text">三、AOF启动配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、AOF恢复-RDB同理"><span class="nav-number">4.</span> <span class="nav-text">四、AOF恢复 (RDB同理)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正常恢复"><span class="nav-number">4.1.</span> <span class="nav-text">正常恢复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常恢复"><span class="nav-number">4.2.</span> <span class="nav-text">异常恢复</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AOF重写"><span class="nav-number">5.</span> <span class="nav-text">AOF重写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#是什么？"><span class="nav-number">5.1.</span> <span class="nav-text">是什么？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、总结"><span class="nav-number">6.</span> <span class="nav-text">五、总结</span></a></li></ol></div>
             
 
           </div>
