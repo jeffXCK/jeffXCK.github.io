@@ -2,10 +2,8 @@
 title: springboot接入支付宝app支付
 comments: false
 date: 2019-08-02 21:20:43
-categories: springBoot
-tags:
- - springBoot
- - 支付宝支付
+categories: springboot
+tags: 支付宝支付
 ---
 
 ### 一：集成步骤

@@ -1,11 +1,9 @@
 ---
 title: springboot接入微信app支付
 comments: false
-date: 2019-08-02 21:20:43
-categories: springBoot
-tags:
- - springBoot
- - 微信支付
+date: 2019-08-02 22:20:43
+categories: springboot
+tags: 微信支付
 ---
 
 ### 一：集成步骤

@@ -100,7 +100,7 @@ creative_commons:
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
   enable: true
-  permalink: https://github.com/xiaochangkun
+  permalink: https://github.com/jeffXCK
   title: Follow me on GitHub
 
 
@@ -162,7 +162,7 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
-  schedule: /schedule/ || calendar
+  #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   commonweal: /404.html || heartbeat
 
@@ -197,10 +197,10 @@ site_state: true
 # Value before `||` delimiter is the target permalink.
 # Value after `||` delimiter is the name of FontAwesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/xiaochangkun || github
-  E-Mail: mailto:xiaochangkun@126.com || envelope
-#  Weibo: https://weibo.com/xiaochangkun || weibo
-#  Google: https://plus.google.com/xiaochangkun || google
+  GitHub: https://github.com/jeffXCK || github
+  E-Mail: mailto:jeffXCK@126.com || envelope
+#  Weibo: https://weibo.com/yourname || weibo
+#  Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
   #VK Group: https://vk.com/yourname || vk

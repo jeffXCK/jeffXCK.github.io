@@ -67,9 +67,8 @@ tags:
    # 注释 bind
    ```
    
-   如图（参考）：
-
-![修改redis服务默认后台启动](centOS7中安装redis5-0-4/redis-conf-daemonize.png)
+   > 如图（参考）：
+   > ![redis-conf-daemonize.png](https://upload-images.jianshu.io/upload_images/18660770-1ee456ba0f587652.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 6. 启动
 
@@ -83,7 +82,5 @@ tags:
    exit
    ```
 
-   ![redis启动命令](centOS7中安装redis5-0-4/redis-start.png)
-
-   
+   > 如图参考：![redis-start.png](https://upload-images.jianshu.io/upload_images/18660770-8c5e7842cd51ef8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
