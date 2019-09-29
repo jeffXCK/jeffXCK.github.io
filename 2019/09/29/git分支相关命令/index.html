@@ -138,17 +138,18 @@
 
 
 
-  <meta name="description" content="愿岁月静好，始于初见，止于终老。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://xiaochangkun.github.io/categories/index.html">
+  <meta name="description" content="创建分支： git branch &amp;lt;分支名&amp;gt; git branch -v 查看分支  切换分支： git checkout &amp;lt;分支名&amp;gt; 一步完成： git checkout -b &amp;lt;分支名&amp;gt;  合并分支： 先切换到主干 git checkout master git merge &amp;lt;分支名&amp;gt;  删除分支 先切换到主干 git checkout mast">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git分支相关命令">
+<meta property="og:url" content="https://xiaochangkun.github.io/2019/09/29/git分支相关命令/index.html">
 <meta property="og:site_name" content="猿书">
-<meta property="og:description" content="愿岁月静好，始于初见，止于终老。">
+<meta property="og:description" content="创建分支： git branch &amp;lt;分支名&amp;gt; git branch -v 查看分支  切换分支： git checkout &amp;lt;分支名&amp;gt; 一步完成： git checkout -b &amp;lt;分支名&amp;gt;  合并分支： 先切换到主干 git checkout master git merge &amp;lt;分支名&amp;gt;  删除分支 先切换到主干 git checkout mast">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-21T13:49:24.352Z">
+<meta property="og:updated_time" content="2019-09-29T01:57:44.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="愿岁月静好，始于初见，止于终老。">
+<meta name="twitter:title" content="git分支相关命令">
+<meta name="twitter:description" content="创建分支： git branch &amp;lt;分支名&amp;gt; git branch -v 查看分支  切换分支： git checkout &amp;lt;分支名&amp;gt; 一步完成： git checkout -b &amp;lt;分支名&amp;gt;  合并分支： 先切换到主干 git checkout master git merge &amp;lt;分支名&amp;gt;  删除分支 先切换到主干 git checkout mast">
 
 
 
@@ -156,7 +157,7 @@
 
   
   
-  <link rel="canonical" href="https://xiaochangkun.github.io/categories/">
+  <link rel="canonical" href="https://xiaochangkun.github.io/2019/09/29/git分支相关命令/">
 
 
 
@@ -166,7 +167,7 @@
   };
 </script>
 
-  <title>categories | 猿书</title>
+  <title>git分支相关命令 | 猿书</title>
   
 
 
@@ -300,7 +301,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -380,133 +381,272 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xiaochangkun.github.io/2019/09/29/git分支相关命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaochangkun">
+      <meta itemprop="description" content="愿岁月静好，始于初见，止于终老。">
+      <meta itemprop="image" content="/images/avatar2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猿书">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">categories
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
+          <h1 class="post-title" itemprop="name headline">git分支相关命令
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 8 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Active/">Active</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JVM/">JVM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/centOS7/">centOS7</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springboot/">springboot</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-29 09:56:22 / 修改时间：09:57:44" itemprop="dateCreated datePublished" datetime="2019-09-29T09:56:22+08:00">2019-09-29</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">230</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">1 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="创建分支："><a href="#创建分支：" class="headerlink" title="创建分支："></a>创建分支：</h3><ul>
+<li>git branch &lt;分支名&gt;</li>
+<li>git branch -v 查看分支</li>
+</ul>
+<h3 id="切换分支："><a href="#切换分支：" class="headerlink" title="切换分支："></a>切换分支：</h3><ul>
+<li>git checkout &lt;分支名&gt;</li>
+<li>一步完成： git checkout -b &lt;分支名&gt;</li>
+</ul>
+<h3 id="合并分支："><a href="#合并分支：" class="headerlink" title="合并分支："></a>合并分支：</h3><ul>
+<li>先切换到主干 git checkout master</li>
+<li>git merge &lt;分支名&gt;</li>
+</ul>
+<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><ul>
+<li>先切换到主干 git checkout master</li>
+<li>git branch -D &lt;分支名&gt;</li>
+</ul>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="xiaochangkun 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="xiaochangkun 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/29/分库分表之后，自增主键如何处理？/" rel="next" title="分库分表之后，自增主键如何处理？">
+                <i class="fa fa-chevron-left"></i> 分库分表之后，自增主键如何处理？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/29/JVM面试题集锦/" rel="prev" title="JVM面试题集锦">
+                JVM面试题集锦 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -526,8 +666,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -665,6 +814,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建分支："><span class="nav-number">1.</span> <span class="nav-text">创建分支：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换分支："><span class="nav-number">2.</span> <span class="nav-text">切换分支：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并分支："><span class="nav-number">3.</span> <span class="nav-text">合并分支：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分支"><span class="nav-number">4.</span> <span class="nav-text">删除分支</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -867,28 +1033,9 @@
 </script>
 
 
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://xiaochangkun.github.io/categories/index.html";
-    this.page.identifier = "categories/index.html";
-    this.page.title = 'categories';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-  
-    window.addEventListener('load', loadComments, false);
-  
-</script>
 
 
 
-
-
-  
 
 
   
