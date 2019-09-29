@@ -7,7 +7,6 @@ tags: centOS7
 ---
 
 下文命令中的中括号[ ]，代表可选的相关命令或服务名。
-
 > 如：lsof -i:[端口号]  => lsof -i:8080
 
 ### 文件操作的相关命令
@@ -23,7 +22,7 @@ tags: centOS7
 | mkdir -p parent/child/grandson                               | 创建父子目录                                                 |
 | mv 源文件或目录 目标文件或目录                               | 移动文件（也可以重命名）                                     |
 | cp -R 文件名 目标目录                                        | 复制文件                                                     |
-| rm -f 文件名                                                 | 删除文件                                                     |
+| rm -f 文件名 (慎用 rm -f /*,会删除根目录下所有文件)          | 删除文件                                                     |
 | rm -rf parent 目录名                                         | 删除目录                                                     |
 | vim /etc/profile                                             | 打开Profile文件配置环境变量（按i编辑模式；按Esc退出编辑；输入"：wq!"保存退出） |
 | source /etc/profile                                          | 使配置的环境变量生效                                         |
@@ -50,56 +49,58 @@ tags: centOS7
 | -v                                                           | 显示所有过程                                                 |
 | -O                                                           | 将文件解开到标准输出                                         |
 
-### 防火墙相关
-| 命令                                                        | 说明                            |
-| ----------------------------------------------------------- | ------------------------------- |
-| reboot                                                      | 重启                            |
-| clear                                                       | 清屏                            |
-| service iptables [start/stop/restart/status]                | 防火墙：启动/关闭/重启/查看状态 |
-| firewall-cmd --list-ports                                   | 查看当前iptables开放的端口      |
-| firewall-cmd --zone=public  --add-port=8080/tcp --permanent | 开放指定端口到防火墙中          |
-| firewall-cmd --reload                                       | 重启防火墙                      |
-| vi /etc/sysconfig/iptables                                  | 编辑防火墙配置文件              |
 
-``` shell
-*filter
-:INPUT ACCEPT [0:0]
-:FORWARD ACCEPT [0:0]
-:OUTPUT ACCEPT [0:0]
--A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
--A INPUT -p icmp -j ACCEPT
--A INPUT -i lo -j ACCEPT
--A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
-
-# 注意：端口配置必须在如下配的的上方，放在下方无效。
-
--A INPUT -j REJECT --reject-with icmp-host-prohibited
--A FORWARD -j REJECT --reject-with icmp-host-prohibited
-
-```
-
+### systemctl 
+- 注册在系统中的标准化程序，统一管理方式：
+  - systemctl start 服务名(xxxx.service)
+  - systemctl restart 服务名(xxxx.service)
+  - systemctl stop 服务名(xxxx.service)
+  - systemctl reload 服务名(xxxx.service)
+  - systemctl status 服务名(xxxx.service)
+- 查看服务的方法 /usr/lib/systemd/system
+- 查看服务的命令
+  - systemctl list-unit-files
+  - systemctl --type service
+- 通过systemctl 命令设置自启动
+- 自启动 systemctl enable service_name
+- 不自启动 systemctl disable service_name
 
 ### 查看后台进程的三种方式
 1. ps -ef|grep [服务名]|grep -v grep
 2. netstat -anp|grep [端口号]
-3. lsof -i:[端口号]
+3. lsof -i:61616
 
 *杀死进程：* kill -9 [pid]
 
+
+### 防火墙相关
+| 命令                                                         | 说明                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| reboot                                                       | 重启服务器                                                   |
+| clear                                                        | 清屏                                                         |
+| systemctl start firewalld                                    | 打开防火墙                                                   |
+| systemctl stop firewalld                                     | 关闭防火墙                                                   |
+| firewall-cmd --reload 或者 systemctl reload firewalld        | 重启防火墙                                                   |
+| firewall-cmd --state 或者 systemctl status firewalld         | 查看防火墙状态                                               |
+| systemctl enable firewalld                                   | 开机自启动防火墙                                             |
+| systemctl disable firewalld                                  | 禁止开机启动防火墙                                           |
+| firewall-cmd --list-ports                                    | 查看已打开的端口                                             |
+| firewall-cmd --permanent --zone=public  --add-port=8080/tcp  | 开放指定端口，其中 permanent 表示永久生效，public 表示作用域，8080/tcp表示端口和类型 |
+| firewall-cmd --permanent --zone=public --remove-port=8080/tcp | 关闭端口                                                     |
+| vi /etc/sysconfig/iptables                                   | 编辑防火墙配置文件                                           |
+
+
 ### 其他
-| 命令                     | 说明                                                         |
-| ------------------------ | ------------------------------------------------------------ |
-| su root                  | 切换到root用户                                               |
-| exit                     | 回到用户权限                                                 |
-| reboot                   | 重启                                                         |
-| clear                    | 清屏                                                         |
-| ifconfig                 | 查看centos ip                                                |
-| /etc/init.d/sshd  [可选] | 查看ssh服务用法〔start/stop/restart/reload/condrestart/status〕 |
-| cat /etc/sysconfig/i18n  | 查看系统编码方式                                             |
-| yum -y install lrzsz     | 安装在线导入安装包的插件                                     |
+| 命令                      | 说明                                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| su root                   | 切换到root用户                                               |
+| exit                      | 回到用户权限                                                 |
+| reboot                    | 重启                                                         |
+| clear                     | 清屏                                                         |
+| ifconfig                  | 查看centos ip                                                |
+| /etc/init.d/sshd 〔可选〕 | 查看ssh服务用法〔start/stop/restart/reload/condrestart/status〕 |
+| cat /etc/sysconfig/i18n   | 查看系统编码方式                                             |
+| yum -y install lrzsz      | 安装在线导入安装包的插件                                     |
 
 
 ### 图形界面和命令行界面切换
@@ -108,7 +109,6 @@ tags: centOS7
 | ------ | ---------------------- |
 | init 3 | 图形界面切换命令行界面 |
 | init 5 | 命令行界面切换图形界面 |
-
 
 #### 2. 永久切换
 centOS7
@@ -127,9 +127,10 @@ centOS7以下版本
 ### JDK安装及环境变量
 查看系统自带的jdk：rpm -qa|grep java
 卸载系统自带的jdk：rpm -e --nodeps jdk名
-```
+```shell
 # 注意：windows下用分号(;)，Linux下用冒号(:)分隔。
 export JAVA_HOME=/usr/local/java/jdk1.8.0_11
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$PATH:$JAVA_HOME/bin
 ```
+
